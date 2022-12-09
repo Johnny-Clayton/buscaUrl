@@ -41,13 +41,11 @@ public class PesquisaURL2 {
 		String linkExterno = link[0].toString();
 		String linkInterno = link[1].toString();
 
-	    // Adiciona alguns elementos ao mapa
 	    mapa.put("Versão HTML: ", pegarVersaoHTML(document));
 	    mapa.put("Titulo da Pagína: ", pegarTituloPagina(document));
 	    mapa.put("Link Externo: ", linkExterno);
 	    mapa.put("Link Interno: ", linkInterno);
 
-	    // Exibe o conteúdo do mapa
 	    for (Map.Entry<String, String> entrada : mapa.entrySet()) {
 	      System.out.println(entrada.getKey() + ": " + entrada.getValue());
 	    }
@@ -57,14 +55,13 @@ public class PesquisaURL2 {
 		
 		String htmlVersion = "";
 		try {
-			// Trabalhar o para pegar o HTML aqui.
 			
 			String docType = pegarDocType(document);
 			htmlVersion = getHtmlVersion(docType);
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace(); //mudar para logeer
+			e.printStackTrace(); 
 			System.out.println("Erro para pegar a versão HTML da pagina.");
 		}
 		
@@ -77,7 +74,7 @@ public class PesquisaURL2 {
 		try {
 			title = document.title();
 		} catch (Exception e) {
-			e.printStackTrace();//mudar para logeer
+			e.printStackTrace();
 			System.out.println("Erro para pegar o titulo da pagina.");
 		}
 		
@@ -90,7 +87,7 @@ public class PesquisaURL2 {
 		int linkInterno = 0;
 		
 		try {
-			// Trabalhar o para pegar o link Externo aqui.
+			
 			Elements links = document.select("a");
 			
 			for(Element e : links)
@@ -105,7 +102,7 @@ public class PesquisaURL2 {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();//mudar para logeer
+			e.printStackTrace();
 			System.out.println("Erro para pegar os links internos e externos da pagina.");
 		}
 		
